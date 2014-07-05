@@ -74,11 +74,11 @@ class LeakyBucket
      */
     public function __construct($key, StorageInterface $storage, array $settings = array())
     {
-        $this->key = $key;
+        $this->key     = $key;
         $this->storage = $storage;
 
         // Make sure only existing settings can be set
-        $settings = array_intersect_key($settings, self::$defaults);
+        $settings       = array_intersect_key($settings, self::$defaults);
         $this->settings = array_merge(self::$defaults, $settings);
 
         $this->bucket = $this->get();
