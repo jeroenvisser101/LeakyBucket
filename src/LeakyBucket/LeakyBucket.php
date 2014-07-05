@@ -21,10 +21,13 @@ use SebastianBergmann\Exporter\Exception;
 class LeakyBucket
 {
     /**
-     * This will be added to all keys.
+     * Bucket key's prefix.
      */
     const LEAKY_BUCKET_KEY_PREFIX = 'leakybucket:v1:';
 
+    /**
+     * Bucket key's postfix.
+     */
     const LEAKY_BUCKET_KEY_POSTFIX = ':bucket';
 
     /**
