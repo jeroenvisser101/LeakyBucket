@@ -33,7 +33,7 @@ class LeakyBucketTest extends \PHPUnit_Framework_TestCase
     protected function getCleanBucket(StorageInterface $storage = null, array $options = array())
     {
         $storage = $storage ?: new RedisStorage();
-        $bucket = new LeakyBucket(
+        $bucket  = new LeakyBucket(
             'leakybucket-test',
             $storage,
             $options
