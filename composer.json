@@ -1,0 +1,25 @@
+{
+    "name": "jeroenvisser101/leakybucket",
+    "type": "Library",
+    "description": "An implementation of the Leaky Bucket algorithm.",
+    "keywords": ["firewall", "throttling", "limits", "leakybucket"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jeroen Visser",
+            "email": "jeroenvisser101@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "predis/predis": ">=0.8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.1.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "LeakyBucket": "src/"
+        }
+    }
+}
