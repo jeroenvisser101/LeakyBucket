@@ -133,6 +133,26 @@ class LeakyBucket
     }
 
     /**
+     * Attach aditional data to the bucket.
+     *
+     * @param array $data The data to be attached to this bucket
+     */
+    public function setData(array $data)
+    {
+        $this->bucket['data'] = (array) $data;
+    }
+
+    /**
+     * Get additional data from the bucket.
+     *
+     * @return array
+     */
+    public function getData()
+    {
+        return $this->bucket['data'];
+    }
+
+    /**
      * Gets the total capacity.
      *
      * @return float

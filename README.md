@@ -53,7 +53,17 @@ $capacityUsed  = $bucket->getCapacityUsed();
 $leakPerSecond = $bucket->getLeak();
 
 // Get the last timestamp from when the bucket was updated
-$timestamp = $bucket->getLastTimestamp()
+$timestamp = $bucket->getLastTimestamp();
+
+// Set additional data
+$bucket->setData(
+    array(
+        'timeout' => 3600
+    )
+);
+
+// Set additional data
+$data = $bucket->getData();
 
 // Update the bucket with the leaked drops
 $bucket->leak();
@@ -91,7 +101,7 @@ You can contribute by forking the repo and creating pull requests. You can also 
 1. Your code complies with the [PSR-2](http://www.php-fig.org/psr/psr-2/) standards. (check using the [php-cs-checker](http://cs.sensiolabs.org/))
 1. Your code is fully tested and PHPUnit tests are also supplied.
 1. Your code passes in TravisCI build.
-1. You agree that you're code will be made available under the MIT License found in `LICENSE`.
+1. By contributing your code, you agree to license your contribution under the MIT license.
 
 ## Boring legal stuff
 This project is licensed under the MIT license. `LICENSE` file can be found in this repository.
