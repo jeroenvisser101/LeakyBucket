@@ -52,7 +52,7 @@ $capacityUsed  = $bucket->getCapacityUsed();
 // Get the drops/second that the bucket leaks
 $leakPerSecond = $bucket->getLeak();
 
-// Get the last timestamp from when the bucket was updated:
+// Get the last timestamp from when the bucket was updated
 $timestamp = $bucket->getLastTimestamp()
 
 // Update the bucket with the leaked drops
