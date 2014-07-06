@@ -173,14 +173,6 @@ class LeakyBucket
     }
 
     /**
-     * Updates the bucket's timestamp
-     */
-    public function touch()
-    {
-        $this->bucket['time'] = microtime(true);
-    }
-
-    /**
      * Gets the last timestamp set on the bucket.
      *
      * @return mixed
@@ -188,6 +180,14 @@ class LeakyBucket
     public function getLastTimestamp()
     {
         return $this->bucket['time'];
+    }
+
+    /**
+     * Updates the bucket's timestamp
+     */
+    public function touch()
+    {
+        $this->bucket['time'] = microtime(true);
     }
 
     /**
