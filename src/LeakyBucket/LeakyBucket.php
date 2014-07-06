@@ -106,8 +106,10 @@ class LeakyBucket
         $this->bucket['drops'] = $this->bucket['drops'] ?: 0;
 
         // Update the bucket
-        $this->bucket['time'] = microtime(true);
         $this->bucket['drops'] += $drops;
+
+        // Set the timestamp
+        $this->touch();
 
         $this->overflow();
     }
@@ -171,6 +173,24 @@ class LeakyBucket
     }
 
     /**
+     * Updates the bucket's timestamp
+     */
+    public function touch()
+    {
+        $this->bucket['time'] = microtime(true);
+    }
+
+    /**
+     * Gets the last timestamp set on the bucket.
+     *
+     * @return mixed
+     */
+    public function getLastTimestamp()
+    {
+        return $this->bucket['time'];
+    }
+
+    /**
      * Returns true if the bucket is full.
      *
      * @return bool
@@ -197,14 +217,15 @@ class LeakyBucket
 
         // Make sure the key is at least zero
         $this->bucket['drops'] = $this->bucket['drops'] ?: 0;
-
-        $this->bucket['time'] = microtime(true);
         $this->bucket['drops'] -= $leakage;
 
         // Make sure we don't set it less than zero
         if ($this->bucket['drops'] < 0) {
             $this->bucket['drops'] = 0;
         }
+
+        // Set the timestamp
+        $this->touch();
     }
 
     /**

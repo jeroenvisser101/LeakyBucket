@@ -112,7 +112,7 @@ class LeakyBucketTest extends \PHPUnit_Framework_TestCase
         $bucket = $this->getCleanBucket();
 
         $bucket->fill($rand = rand(1, $bucket->getCapacity()));
-        $this->assertEquals($bucket->getCapacityUsed(), $rand, "Bucket was not filled with $rand drops, instead was filled with {$bucket->getCapacityUsed()}");
+        $this->assertEquals($bucket->getCapacityUsed(), $rand, "Bucket was not filled with $rand drops, instead was filled with {$bucket->getCapacityUsed()}.");
 
         $bucket->reset();
     }
@@ -129,5 +129,18 @@ class LeakyBucketTest extends \PHPUnit_Framework_TestCase
         $bucket->spill($bucket->getCapacity() / 1.2);
 
         $this->assertEquals($bucket->getCapacityUsed(), 0, 'Bucket underflows.');
+    }
+
+    /**
+     * Tests if the bucket's timestamp is correctly set.
+     */
+    public function testLastTimestamp()
+    {
+        $bucket = $this->getCleanBucket();
+
+        $timestamp = microtime(true);
+        $bucket->touch();
+
+        $this->assertEquals(round($timestamp, 3), round($bucket->getLastTimestamp(), 3), 'Timestamp is not updated correctly.');
     }
 }

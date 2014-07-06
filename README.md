@@ -52,11 +52,17 @@ $capacityUsed  = $bucket->getCapacityUsed();
 // Get the drops/second that the bucket leaks
 $leakPerSecond = $bucket->getLeak();
 
+// Get the last timestamp from when the bucket was updated:
+$timestamp = $bucket->getLastTimestamp()
+
 // Update the bucket with the leaked drops
 $bucket->leak();
 
 // Remove excess drops
 $bucket->overflow();
+
+// Update the bucket's timestamp manually
+$bucket->touch();
 
 // Fill the bucket with one drop
 $bucket->fill();
