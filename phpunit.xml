@@ -6,7 +6,7 @@
          convertWarningsToExceptions="true"
          stopOnFailure="true">
     <testsuites>
-        <testsuite name="LeakyBucket Test Suit">
+        <testsuite name="LeakyBucket Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
