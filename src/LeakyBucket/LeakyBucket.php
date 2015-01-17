@@ -56,17 +56,17 @@ class LeakyBucket
      *
      * @var array
      */
-    private static $defaults = array(
+    private static $defaults = [
         'capacity' => 10,
         'leak'     => 0.33
-    );
+    ];
 
     /**
      * The settings for this bucket.
      *
      * @var array
      */
-    private $settings = array();
+    private $settings = [];
 
     /**
      * Class constructor.
@@ -75,7 +75,7 @@ class LeakyBucket
      * @param StorageInterface $storage  The storage provider that has to be used
      * @param array            $settings The settings to be set
      */
-    public function __construct($key, StorageInterface $storage, array $settings = array())
+    public function __construct($key, StorageInterface $storage, array $settings = [])
     {
         $this->key     = $key;
         $this->storage = $storage;

@@ -30,7 +30,7 @@ class LeakyBucketTest extends \PHPUnit_Framework_TestCase
      *
      * @return \LeakyBucket\LeakyBucket
      */
-    protected function getCleanBucket(StorageInterface $storage = null, array $options = array())
+    protected function getCleanBucket(StorageInterface $storage = null, array $options = [])
     {
         $storage = $storage ?: new RedisStorage();
         $bucket  = new LeakyBucket(
@@ -85,10 +85,10 @@ class LeakyBucketTest extends \PHPUnit_Framework_TestCase
     {
         $bucket = $this->getCleanBucket(
             null,
-            array(
+            [
                 'capacity' => 10,
                 'leak'     => 1,
-            )
+            ]
         );
 
         $bucket->fill($bucket->getCapacity());

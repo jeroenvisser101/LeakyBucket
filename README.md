@@ -19,10 +19,10 @@ use LeakyBucket\Storage\RedisStorage;
 $storage = new RedisStorage();
 
 // Define the bucket
-$settings = array(
+$settings = [
     'capacity' => 10,
     'leak'     => 1
-);
+];
 
 // Create the bucket
 $bucket = new LeakyBucket('example-bucket', $storage, $settings);
@@ -57,9 +57,9 @@ $timestamp = $bucket->getLastTimestamp();
 
 // Set additional data
 $bucket->setData(
-    array(
+    [
         'timeout' => 3600
-    )
+    ]
 );
 
 // Set additional data
