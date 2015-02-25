@@ -33,8 +33,7 @@ $bucket->fill();
 // Check if it's full
 if ($bucket->isFull()) {
     header('HTTP/1.1 429 Too Many Requests');
-    echo '<!doctype html><html><body><h1>429 Too Many Requests</h1><p>You seem to be doing a lot of requests. You\'re now cooling down.</p></body></html>';
-    exit;
+    exit '<!doctype html><html><body><h1>429 Too Many Requests</h1><p>You seem to be doing a lot of requests. You\'re now cooling down.</p></body></html>';
 }
 
 // ...
