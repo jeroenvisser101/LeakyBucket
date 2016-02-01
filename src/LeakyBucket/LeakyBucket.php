@@ -307,7 +307,7 @@ class LeakyBucket
     private function get()
     {
         try {
-            $this->storage->fetch(static::LEAKY_BUCKET_KEY_PREFIX . $this->key . static::LEAKY_BUCKET_KEY_POSTFIX);
+            return $this->storage->fetch(static::LEAKY_BUCKET_KEY_PREFIX . $this->key . static::LEAKY_BUCKET_KEY_POSTFIX);
         } catch (Exception $ex) {
             throw new StorageException(sprintf('Could not save "%s" to storage provider.', $this->key));
         }
