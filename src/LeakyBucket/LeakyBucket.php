@@ -223,7 +223,7 @@ class LeakyBucket
         // Update the leakage
         $this->leak();
 
-        return (ceil($this->bucket['drops']) == $this->settings['capacity']);
+        return (ceil((float) $this->bucket['drops']) == $this->settings['capacity']);
     }
 
     /**
