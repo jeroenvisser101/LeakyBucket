@@ -11,7 +11,6 @@ namespace LeakyBucket;
 
 use LeakyBucket\Exception\StorageException;
 use LeakyBucket\Storage\StorageInterface;
-use SebastianBergmann\Exporter\Exception;
 
 /**
  * Implements the Leak Bucket algorithm.
