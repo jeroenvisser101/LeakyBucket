@@ -217,13 +217,7 @@ class LeakyBucket
      */
     public function isFull()
     {
-        // Don't overflow
-        $this->overflow();
-
-        // Update the leakage
-        $this->leak();
-
-        return (ceil((float) $this->bucket['drops']) == $this->settings['capacity']);
+        return (ceil((float) $this->bucket['drops']) >= $this->settings['capacity']);
     }
 
     /**
