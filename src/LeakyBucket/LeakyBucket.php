@@ -85,6 +85,14 @@ class LeakyBucket
         $this->settings = array_merge(self::$defaults, $settings);
 
         $this->bucket = $this->get();
+
+        // Initialize the bucket
+        if (!isset($this->bucket['drops']) || !isset($this->bucket['time'])) {
+            $this->bucket = [
+                'drops' => 0,
+                'time'  => microtime(true)
+            ];
+        }
     }
 
     /**
@@ -107,9 +115,6 @@ class LeakyBucket
 
         // Update the bucket
         $this->bucket['drops'] += $drops;
-
-        // Set the timestamp
-        $this->touch();
 
         $this->overflow();
     }
@@ -237,9 +242,6 @@ class LeakyBucket
         if ($this->bucket['drops'] < 0) {
             $this->bucket['drops'] = 0;
         }
-
-        // Set the timestamp
-        $this->touch();
     }
 
     /**
@@ -257,6 +259,8 @@ class LeakyBucket
      */
     public function save()
     {
+        // Set the timestamp
+        $this->touch();
         $this->set($this->bucket, $this->settings['capacity'] / $this->settings['leak'] * 1.5);
     }
 
