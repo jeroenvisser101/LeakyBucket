@@ -61,7 +61,7 @@ $bucket->setData(
     ]
 );
 
-// Set additional data
+// Get additional data
 $data = $bucket->getData();
 
 // Update the bucket with the leaked drops
