@@ -2,3 +2,5 @@
 /vendor/
 .DS_STORE
 composer.lock
+.php_cs.cache
+php-cs-fixer.phar
