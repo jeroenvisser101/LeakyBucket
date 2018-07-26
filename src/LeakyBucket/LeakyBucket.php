@@ -105,7 +105,8 @@ class LeakyBucket
         if (!$drops > 0) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    'The parameter "%s" has to be an integer greater than 0.', '$drops'
+                    'The parameter "%s" has to be an integer greater than 0.',
+                    '$drops'
                 )
             );
         }
